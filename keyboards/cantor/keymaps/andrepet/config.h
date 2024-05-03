@@ -31,16 +31,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define USE_SERIAL_PD2
 #define USE_SERIAL
 
-
-#define TAPPING_TERM 200
+#define TAPPING_TERM 175
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
 
 // Prevent normal rollover on alphas from accidentally triggering mods.
-#define IGNORE_MOD_TAP_INTERRUPT
+// #error "IGNORE_MOD_TAP_INTERRUPT is no longer necessary as it is now the default behavior of mod-tap keys.
+// Please remove it from your config."
+// define IGNORE_MOD_TAP_INTERRUPT
 
-#define UNICODE_SELECTED_MODES UC_MAC, UC_WINC, UC_LNX
+// These are used to define what operation system the unicode mapping should use
+// #define UNICODE_SELECTED_MODES UC_MAC, UC_WINC, UC_LNX
 
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
