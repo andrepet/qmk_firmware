@@ -31,8 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define USE_SERIAL_PD2
 #define USE_SERIAL
 
-//#define TAPPING_TERM 175
-#define TAPPING_TERM 100
+#define TAPPING_TERM 175
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
