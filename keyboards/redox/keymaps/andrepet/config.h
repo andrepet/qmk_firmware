@@ -22,26 +22,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define USE_I2C
 
 /* Select hand configuration */
-#define MASTER_LEFT
-// #define MASTER_RIGHT
-// #define EE_HANDS
+#define MASTER_LEFT // Windows
+// #define MASTER_RIGHT // Macos
 
-#undef RGBLED_NUM
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 14
-#define RGBLIGHT_HUE_STEP 8
-#define RGBLIGHT_SAT_STEP 8
-#define RGBLIGHT_VAL_STEP 8
-
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 200
-#define IGNORE_MOD_TAP_INTERRUPT
-
-
-//#define UNICODE_SELECTED_MODES UC_MAC // manually set this for unicode to work on macOS
-//#define UNICODE_SELECTED_MODES UC_WINC // for some reason, we need to manually set this for unicode to work on macOS
-//#define UNICODE_SELECTED_MODES UC_LNX
-#define UNICODE_SELECTED_MODES UC_WINC, UC_MAC, UC_LNX
+#define TAPPING_TERM 175
 
 // remove debug to save filesize
 #ifndef NO_DEBUG
@@ -50,3 +36,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #if !defined(NO_PRINT) && !defined(CONSOLE_ENABLE)
 #define NO_PRINT
 #endif // !NO_PRINT
+
+// #undef RGBLED_NUM
+// #define RGBLED_NUM 14
+#define RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_HUE_STEP 8
+#define RGBLIGHT_SAT_STEP 8
+#define RGBLIGHT_VAL_STEP 8
