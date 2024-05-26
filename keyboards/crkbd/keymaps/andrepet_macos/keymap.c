@@ -53,7 +53,6 @@ enum corne_layers {
 #define MOD_W MT(MOD_LCTL | MOD_LGUI, KC_W) // control, command
 #define MOD_F LSA_T(KC_F) // shift, alt
 #define MOD_G MEH_T(KC_G) // control, shift, alt
-#define MOD_Z ALGR_T(KC_Z) // AltGr
 #define MOD_X LCA_T(KC_X) // control, alt
 #define MOD_C LAG_T(KC_C) // alt, command
 #define MOD_D LSG_T(KC_D) // shift, command
