@@ -39,7 +39,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // #undef RGBLED_NUM
 // #define RGBLED_NUM 14
-#define RGBLIGHT_ANIMATIONS
-#define RGBLIGHT_HUE_STEP 8
-#define RGBLIGHT_SAT_STEP 8
-#define RGBLIGHT_VAL_STEP 8
+// #define RGBLIGHT_ANIMATIONS // DEPRICATED
+// #define RGBLIGHT_HUE_STEP 8
+// #define RGBLIGHT_SAT_STEP 8
+// #define RGBLIGHT_VAL_STEP 8
+
+// RGBLIGHT color modes
+#ifdef RGBLIGHT_ENABLE
+  #define RGBLIGHT_EFFECT_RGB_TEST
+  #define RGBLIGHT_EFFECT_BREATHING
+#endif
