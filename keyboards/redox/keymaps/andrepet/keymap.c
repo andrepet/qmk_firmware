@@ -201,7 +201,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	//├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
 	   RGB_MOD ,RGB_HUI ,RGB_SAI ,RGB_VAI ,KC_NO   ,KC_NO   ,KC_NO   ,                          KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,XXXXXXX ,XXXXXXX  ,
 	//├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-	   KC_ESC  ,RGB_HUD ,RGB_SAD ,RGB_VAD ,KC_NO   ,KC_NO   ,KC_F11  ,                          KC_F12  ,CG_SWAP ,CG_NORM ,KC_NO   ,KC_NO   ,XXXXXXX ,XXXXXXX ,
+	   KC_ESC  ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_NO   ,KC_F11  ,                          KC_F12  ,CG_SWAP ,CG_NORM ,KC_NO   ,KC_NO   ,XXXXXXX ,XXXXXXX ,
 	//├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
 	   KC_LSFT ,KC_F1   ,KC_F2   ,KC_F3   ,KC_F4   ,KC_F5   ,KC_NO   ,KC_NO   ,        KC_NO   ,KC_NO   ,KC_F6   ,KC_F7   ,KC_F8   ,KC_F9   ,KC_F10  ,KC_RSFT ,
 	//├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
