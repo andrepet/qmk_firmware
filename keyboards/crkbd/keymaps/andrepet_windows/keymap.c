@@ -193,7 +193,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      SE_CURR ,SE_PIPE ,SE_CIRC ,SE_LABK ,SE_RABK ,SE_ASTR ,                     XXXXXXX ,KC_VOLD ,KC_VOLU ,XXXXXXX ,XXXXXXX ,KC_RSFT ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                        XXXXXXX,TG(_MOUSE),TG(_NUM),   XXXXXXX ,XXXXXXX ,XXXXXXX
+                                        KC_CAPS,TG(_MOUSE),TG(_NUM),   XXXXXXX ,XXXXXXX ,XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
