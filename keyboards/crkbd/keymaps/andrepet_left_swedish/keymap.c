@@ -90,8 +90,8 @@ enum corne_layers {
 #define ALT_RG LALT_T(KC_RGHT)
 
 // shift and control
-#define RS_QUOT	 RSFT_T(SE_QUOT)
-#define LC_ESC   LCTL_T(KC_ESC)
+#define RS_QUOT RSFT_T(SE_QUOT)
+#define LC_ESC  LCTL_T(KC_ESC)
 
 // Key Overrides
 const key_override_t semicolon_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_SCLN, SE_COLN);
@@ -105,6 +105,9 @@ const key_override_t pipe_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PIPE, 
 const key_override_t dlr_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_DLR, SE_EURO);
 const key_override_t pnd_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PND, SE_MICR);
 const key_override_t curr_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_CURR, SE_SECT);
+// These two are needed to get same bracket shift behaviour as macos 
+const key_override_t se_lbrc_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_LBRC, SE_LCBR);
+const key_override_t se_rbrc_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_RBRC, SE_RCBR);
 
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
@@ -119,6 +122,8 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &dlr_key_override,
     &pnd_key_override,
     &curr_key_override,
+    &se_lbrc_key_override,
+    &se_rbrc_key_override,
     NULL // Null terminate the array of overrides!
 };
 
@@ -177,7 +182,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      CG_SWAP ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,                     KC_F12  ,KC_F7   ,KC_F8   ,KC_F9   ,SE_ACUT ,SE_MINS ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     CG_NORM ,KC_LCTL ,KC_LALT ,KC_LGUI ,KC_LSFT ,COL_T   ,                     KC_F11  ,KC_F4   ,KC_F5   ,KC_F6   ,SE_SCLN ,SE_PLUS ,
+     CG_NORM ,KC_LGUI ,KC_LALT ,KC_LCTL ,KC_LSFT ,COL_T   ,                     KC_F11  ,KC_F4   ,KC_F5   ,KC_F6   ,SE_SCLN ,SE_PLUS ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      RGB_TOG ,RGB_HUI ,RGB_SAI ,RGB_VAI ,RGB_MOD ,QWE_T   ,                     KC_F10  ,KC_F1   ,KC_F2   ,KC_F3   ,SE_COLN ,SE_DQUO ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
