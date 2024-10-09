@@ -111,7 +111,7 @@ const key_override_t se_lbrc_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_LBR
 const key_override_t se_rbrc_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_RBRC, SE_RCBR);
 
 // This globally defines all key overrides to be used
-const key_override_t **key_overrides = (const key_override_t *[]){
+const key_override_t *key_overrides[] = {
     &semicolon_key_override,
     &comma_key_override,
     &dot_key_override,
@@ -125,7 +125,6 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &curr_key_override,
     &se_lbrc_key_override,
     &se_rbrc_key_override,
-    NULL // Null terminate the array of overrides!
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
