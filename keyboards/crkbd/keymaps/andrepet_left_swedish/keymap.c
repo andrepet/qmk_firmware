@@ -106,7 +106,7 @@ const key_override_t shift_quot_key_override = ko_make_basic(MOD_MASK_SHIFT, RS_
 const key_override_t dlr_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_DLR, SE_EURO);
 const key_override_t pnd_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PND, SE_MICR);
 const key_override_t curr_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_CURR, SE_SECT);
-// These two are needed to get same bracket shift behaviour as macos 
+// These two are needed to get same bracket shift behaviour as macos
 const key_override_t se_lbrc_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_LBRC, SE_LCBR);
 const key_override_t se_rbrc_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_RBRC, SE_RCBR);
 
@@ -220,7 +220,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
    TG(_MOUSE),XXXXXXX ,KC_MS_L ,KC_MS_D ,KC_MS_R ,XXXXXXX ,                     KC_LEFT ,SHF_DWN ,CTL_UP  ,ALT_RG  ,KC_LGUI ,XXXXXXX ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX,XXXXXXX ,KC_BTN2 ,KC_WH_D ,KC_WH_U ,XXXXXXX ,                     XXXXXXX ,KC_BTN1 ,KC_BTN2 ,KC_ACL0 ,KC_ACL1 ,KC_ACL2 ,
+   S(SE_ACUT),XXXXXXX ,KC_BTN2 ,KC_WH_D ,KC_WH_U ,XXXXXXX ,                     XXXXXXX ,KC_BTN1 ,KC_BTN2 ,KC_ACL0 ,KC_ACL1 ,KC_ACL2 ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          KC_SPC  ,KC_BTN1 ,KC_BTN2 ,   XXXXXXX ,XXXXXXX ,XXXXXXX
                                       //`--------------------------'  `--------------------------
