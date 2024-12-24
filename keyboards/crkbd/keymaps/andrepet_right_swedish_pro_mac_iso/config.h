@@ -32,17 +32,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
 
-// Mouse key speed and acceleration.
+// Mouse key speed and acceleration. Using acceleration mode (default)
 #undef MOUSEKEY_DELAY
-#define MOUSEKEY_DELAY          0
+#define MOUSEKEY_DELAY               10 // Delay between pressing a movement key and cursor movement
 #undef MOUSEKEY_INTERVAL
-#define MOUSEKEY_INTERVAL       16
-#undef MOUSEKEY_WHEEL_DELAY
-#define MOUSEKEY_WHEEL_DELAY    0
+#define MOUSEKEY_INTERVAL            20 // Time between cursor movements in milliseconds
+#undef MOUSEKEY_MOVE_DELTA
+#define MOUSEKEY_MOVE_DELTA           4 // Step size
 #undef MOUSEKEY_MAX_SPEED
-#define MOUSEKEY_MAX_SPEED      3
+#define MOUSEKEY_MAX_SPEED           10 // Maximum cursor speed at which acceleration stops
 #undef MOUSEKEY_TIME_TO_MAX
-#define MOUSEKEY_TIME_TO_MAX    64
+#define MOUSEKEY_TIME_TO_MAX         30 // Time until maximum cursor speed is reached
+#undef MOUSEKEY_WHEEL_DELAY
+#define MOUSEKEY_WHEEL_DELAY         10 // Delay between pressing a wheel key and wheel movement
+#undef MOUSEKEY_WHEEL_INTERVAL
+#define MOUSEKEY_WHEEL_INTERVAL      80 // Time between wheel movements
+#undef MOUSEKEY_WHEEL_DELTA
+#define MOUSEKEY_WHEEL_DELTA          1 // Wheel movement step size
+#undef MOUSEKEY_WHEEL_MAX_SPEED
+#define MOUSEKEY_WHEEL_MAX_SPEED      8 // Maximum number of scroll steps per scroll action
+#undef MOUSEKEY_WHEEL_TIME_TO_MAX
+#define MOUSEKEY_WHEEL_TIME_TO_MAX   40 // Time until maximum scroll speed is reached
 
 // remove debug to save filesize
 #ifndef NO_DEBUG
