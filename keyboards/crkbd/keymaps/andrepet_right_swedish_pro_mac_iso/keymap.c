@@ -103,12 +103,12 @@ const key_override_t quot_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_QUOT, 
 const key_override_t pipe_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PIPE, SE_BSLS);
 const key_override_t dlr_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_DLR, SE_EURO);
 const key_override_t at_key_override = ko_make_with_layers_negmods_and_options(
-   		MOD_MASK_SHIFT,      // Modifiers to trigger the override (Shift)
-    	SE_AT,               // Source key (@)
-    	SE_PND,              // Replacement key (£)
-    	~0,                  // Applies on all layers
-    	MOD_MASK_SHIFT,      // Modifier to suppress (Shift)
-        0                    // Default options (no special options)
+    MOD_MASK_SHIFT,        // Triggering modifier (Shift)
+    SE_AT,                 // Source key (SE_AT)
+    SE_PND,                // Replacement key (SE_PND)
+    ~0,                    // Applies on all layers (65535)
+    MOD_MASK_SHIFT,        // Suppressed modifier (Shift)
+    135                    // Options bitmask (135)
 );
 
 // This globally defines all key overrides to be used
