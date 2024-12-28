@@ -100,8 +100,9 @@ const key_override_t dot_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_DOT, SE
 const key_override_t slash_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_PSLS, SE_QUES);
 const key_override_t plus_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PLUS, SE_EQL);
 const key_override_t quot_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_QUOT, SE_DQUO);
+const key_override_t pipe_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PIPE, SE_BSLS);
 const key_override_t dlr_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_DLR, SE_EURO);
-const key_override_t pnd_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PND, SE_MICR);
+const key_override_t at_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_AT, SE_PND);
 // These two are needed to get same bracket shift behaviour as macos
 const key_override_t se_lbrc_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_LBRC, SE_LCBR);
 const key_override_t se_rbrc_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_RBRC, SE_RCBR);
@@ -114,10 +115,11 @@ const key_override_t *key_overrides[] = {
     &slash_key_override,
     &plus_key_override,
     &quot_key_override,
+    &pipe_key_override,
     &dlr_key_override,
-    &pnd_key_override,
+    &at_key_override,
     &se_lbrc_key_override,
-    &se_rbrc_key_override,
+    &se_rbrc_key_override
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
