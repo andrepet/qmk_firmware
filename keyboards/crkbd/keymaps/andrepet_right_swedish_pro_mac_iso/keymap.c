@@ -102,14 +102,9 @@ const key_override_t plus_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PLUS, 
 const key_override_t quot_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_QUOT, SE_DQUO);
 const key_override_t pipe_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PIPE, SE_BSLS);
 const key_override_t dlr_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_DLR, SE_EURO);
-const key_override_t at_key_override = ko_make_with_layers_negmods_and_options(
-    MOD_MASK_SHIFT,        // Triggering modifier (Shift)
-    SE_AT,                 // Source key (SE_AT)
-    SE_PND,                // Replacement key (SE_PND)
-    ~0,                    // Applies on all layers (65535)
-    MOD_MASK_SHIFT,        // Suppressed modifier (Shift)
-    135                    // Options bitmask (135)
-);
+ // Small bug with '@' (LALT(KC_2)) -> '£' (RALT(KC_3)). This will produde '¥' (S(A(KC_3))) due to the operating system acknoledges the shift key too.
+ // It is possible to suppress it but I couldn't get the code in the documents to work.
+const key_override_t at_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_AT, SE_PND);
 
 // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
