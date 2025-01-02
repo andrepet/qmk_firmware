@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      LC_ESC  ,CTL_A   ,ALT_R   ,COM_S   ,SHF_T   ,MOD_G   ,                     MOD_M   ,SFT_N   ,COM_E   ,ALT_I   ,CTL_O   ,CTL_AE  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,KC_Z    ,MOD_X   ,MOD_C   ,MOD_D   ,MOD_V   ,                     MOD_K   ,MOD_H   ,MOD_COMM,MOD_DOT ,KC_PSLS ,KC_RSFT ,
+     SE_BSLS ,KC_Z    ,MOD_X   ,MOD_C   ,MOD_D   ,MOD_V   ,                     MOD_K   ,MOD_H   ,MOD_COMM,MOD_DOT ,KC_PSLS ,SE_QUOT ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          FUN_TAB ,NAV_SPC ,NUM_ENT ,  MOUSE_DEL,SYM_BSPC,MO(_TOG_NAV)
                                       //`--------------------------'  `--------------------------'
@@ -139,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      LC_ESC  ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,                     KC_H    ,SFT_J   ,COM_K   ,ALT_L   ,CTL_OO  ,CTL_AE  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,                     KC_N    ,KC_M    ,SE_COMM ,SE_DOT  ,KC_PSLS ,KC_RSFT ,
+     SE_BSLS ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,                     KC_N    ,KC_M    ,SE_COMM ,SE_DOT  ,KC_PSLS ,SE_QUOT ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          FUN_TAB ,KC_SPC ,NUM_ENT  ,  MOUSE_DEL,SYM_BSPC,MO(_TOG_NAV)
                                       //`--------------------------'  `--------------------------'
@@ -151,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      TG(_NUM),KC_LCTL ,KC_LALT ,KC_LGUI ,KC_LSFT ,KC_MEH  ,                     SE_COMM ,SE_4    ,SE_5    ,SE_6    ,SE_SCLN ,SE_PLUS ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,G(KC_Z) ,G(KC_X) ,G(KC_C) ,G(KC_D) ,KC_HYPR ,                     SE_DOT  ,SE_1    ,SE_2    ,KC_3    ,SE_COLN ,SE_QUOT ,
+     KC_LSFT ,G(KC_Z) ,G(KC_X) ,G(KC_C) ,G(KC_D) ,KC_HYPR ,                     SE_DOT  ,SE_1    ,SE_2    ,KC_3    ,SE_COLN ,SE_DQUO ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          MO(_FUN),NAV_SPC ,KC_ENT  ,   SE_EQL  ,SYM_0   ,TOGNAV_
                                       //`--------------------------'  `--------------------------'
@@ -163,7 +163,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX ,CTL_G_A ,ALT_G_R ,COM_G_S ,SHF_G_T ,KC_MEH  ,                     KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT ,SE_SCLN ,SE_PLUS ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,G(KC_Z) ,G(KC_X) ,G(KC_C) ,G(KC_D) ,G(KC_V) ,                     XXXXXXX ,KC_VOLD ,KC_VOLU ,XXXXXXX ,SE_COLN ,SE_QUOT ,
+     KC_LSFT ,G(KC_Z) ,G(KC_X) ,G(KC_C) ,G(KC_D) ,G(KC_V) ,                     XXXXXXX ,KC_VOLD ,KC_VOLU ,XXXXXXX ,SE_COLN ,SE_DQUO ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          XXXXXXX ,XXXXXXX ,XXXXXXX ,   SE_EQL  ,SE_UNDS ,SE_MINS
                                       //`--------------------------'  `--------------------------'
@@ -176,7 +176,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      CG_NORM ,KC_LCTL ,KC_LALT ,KC_LGUI ,KC_LSFT ,COL_T   ,                     KC_F11  ,KC_F4   ,KC_F5   ,KC_F6   ,SE_SCLN ,SE_PLUS ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     RGB_TOG ,RGB_HUI ,RGB_SAI ,RGB_VAI ,RGB_MOD ,QWE_T   ,                     KC_F10  ,KC_F1   ,KC_F2   ,KC_F3   ,SE_COLN ,SE_QUOT ,
+     RGB_TOG ,RGB_HUI ,RGB_SAI ,RGB_VAI ,RGB_MOD ,QWE_T   ,                     KC_F10  ,KC_F1   ,KC_F2   ,KC_F3   ,SE_COLN ,SE_DQUO ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          XXXXXXX ,XXXXXXX ,XXXXXXX ,   KC_DEL  ,KC_BSPC ,KC_CAPS
                                       //`--------------------------'  `--------------------------'
