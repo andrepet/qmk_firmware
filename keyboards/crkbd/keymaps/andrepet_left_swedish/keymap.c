@@ -18,7 +18,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include "keymap_swedish.h" // left-half master
-// #include "keymap_swedish_pro_mac_iso.h" // right-half master
 
 enum corne_layers {
   _COLEMAK,
@@ -43,47 +42,9 @@ enum corne_layers {
 #define NAV_MIN LT(_NAV,SE_MINS)
 #define FUN_TAB LT(_FUN,KC_TAB)
 
-// Left-hand home block mods (windows standard)
-#define SHF_T LSFT_T(KC_T) // colemak
-#define CTL_S LCTL_T(KC_S) // colemak
-#define ALT_R LALT_T(KC_R) // colemak
-#define GUI_A LGUI_T(KC_A) // colemak
-
-// Left-hand home block mods extensions (windows standard)
-#define MOD_W MT(MOD_LCTL | MOD_LGUI, KC_W) // control, gui
-#define MOD_F LSA_T(KC_F) // shift, alt
-#define MOD_G MEH_T(KC_G) // control, shift, alt
-#define MOD_X LAG_T(KC_X) // alt, gui
-#define MOD_C LCA_T(KC_C) // control, alt
-#define MOD_D RCS_T(KC_D) // shift, control
-#define MOD_V HYPR_T(KC_V) // left control, shift, alt, command
-
-// Left-hand home block mods (windows standard) for short-commands
-#define SHF_C_T LSFT_T(C(KC_T)) // colemak
-#define CTL_C_S LCTL_T(C(KC_S)) // colemak
-#define ALT_C_R LALT_T(C(KC_R)) // colemak
-#define GUI_C_A LGUI_T(C(KC_A)) // colemak
-
 // Right-hand home block mods (windows standard)
-#define SFT_N RSFT_T(KC_N) // colemak
-#define CTL_E RCTL_T(KC_E) // colemak
-#define ALT_I LALT_T(KC_I) // colemak
-#define GUI_O RGUI_T(KC_O) // colemak
-#define SFT_J RSFT_T(KC_J) // qwerty
-#define CTL_K RCTL_T(KC_K) // qwerty
-#define ALT_L LALT_T(KC_L) // qwerty
-#define GUI_OO RGUI_T(SE_ODIA) // qwerty
 #define CTL_AE RCTL_T(SE_ADIA) // colemak / qwerty
 #define SFT_QO RSFT_T(SE_QUOT) // colemak / qwerty
-
-// Right-hand home block mods extensions (windows standard)
-#define MOD_U RSA_T(KC_U) // shift, alt
-#define MOD_Y MT(MOD_RCTL | MOD_RGUI, KC_Y) // control, command
-#define MOD_M MEH_T(KC_M) // control, shift, alt (MEH)
-#define MOD_K HYPR_T(KC_K) // control, shift, alt, command (HYPES)
-#define MOD_H RCS_T(KC_H) // shift, control
-#define MOD_COMM LCA_T(SE_COMM) // control, alt
-#define MOD_DOT RAG_T(SE_DOT) // alt, gui
 
 // Right-hand mouse layer home block mods
 #define SHF_DWN RSFT_T(KC_DOWN)
@@ -146,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      KC_TAB  ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,KC_T    ,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,SE_ARNG ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     LC_ESC  ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,                     KC_H    ,SFT_J   ,CTL_K   ,ALT_L   ,GUI_OO  ,CTL_AE  ,
+     LC_ESC  ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,SE_ODIA ,CTL_AE  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,                     KC_N    ,KC_M    ,SE_COMM ,SE_DOT  ,KC_PSLS ,SFT_QO  ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
