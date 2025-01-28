@@ -32,8 +32,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
 
-#define ONESHOT_TAP_TOGGLE 5  /* Tapping this number of times holds the key until tapped once again. */
-#define ONESHOT_TIMEOUT 5000  /* Time (in ms) before the one shot key is released */
+// #define ONESHOT_TAP_TOGGLE 5  /* Tapping this number of times holds the key until tapped once again. */
+// #define ONESHOT_TIMEOUT 5000  /* Time (in ms) before the one shot key is released */
 
 // Mouse key speed and acceleration. Using acceleration mode (default)
 #define MOUSEKEY_DELAY               10 // Delay between pressing a movement key and cursor movement
