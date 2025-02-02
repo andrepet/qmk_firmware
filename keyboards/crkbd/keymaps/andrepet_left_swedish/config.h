@@ -56,10 +56,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif // !NO_PRINT
 
 // RGB color modes
-#ifdef RGB_MATRIX_ENABLE
-  #define ENABLE_RGB_MATRIX_ALPHAS_MODS
-  #define ENABLE_RGB_MATRIX_BREATHING
-  #define ENABLE_RGB_MATRIX_RAINBOW_BEACON
-  #define ENABLE_RGB_MATRIX_FLOWER_BLOOMING
-  #define ENABLE_RGB_MATRIX_SPLASH
-#endif
+//#ifdef RGB_MATRIX_ENABLE
+//  #define ENABLE_RGB_MATRIX_ALPHAS_MODS
+//  #define ENABLE_RGB_MATRIX_BREATHING
+//  #define ENABLE_RGB_MATRIX_RAINBOW_BEACON
+//  #define ENABLE_RGB_MATRIX_FLOWER_BLOOMING
+//  #define ENABLE_RGB_MATRIX_SPLASH
+//endif
