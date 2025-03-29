@@ -45,14 +45,19 @@ enum corne_layers {
 // Right-hand home block mods (windows standard)
 #define CTL_AE RCTL_T(SE_ADIA) // colemak / qwerty
 #define SFT_QO RSFT_T(SE_QUOT) // colemak / qwerty
+#define ALT_AO LALT_T(SE_ARNG) // colemak / qwerty
+#define GUI_SL LGUI_T(KC_PSLS) // colemak / qwerty
 
 // Right-hand mouse layer home block mods
 #define SHF_DWN RSFT_T(KC_DOWN)
-#define CTL_UP RCTL_T(KC_UP)
-#define ALT_RG LALT_T(KC_RGHT)
+#define CTL_UP  RCTL_T(KC_UP)
+#define ALT_RG  LALT_T(KC_RGHT)
 
-// shift and control
-#define LC_ESC  LCTL_T(KC_ESC)
+// Left-hand home block mods (windows standard)
+#define LC_ESC  LCTL_T(KC_ESC)     // colemak / qwerty
+#define ALT_TCK LALT_T(S(SE_ACUT)) // colemak
+#define ALT_TAB LALT_T(KC_TAB)     // windows
+#define GUI_Z   LGUI_T(KC_Z)       // colemak / qwerty
 
 // one shot modifiers
 #define OS_GUI OSM(MOD_LGUI)
@@ -93,11 +98,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_COLEMAK] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-   S(SE_ACUT),KC_Q    ,KC_W    ,KC_F    ,KC_P    ,KC_B    ,                     KC_J    ,KC_L    ,KC_U    ,KC_Y    ,SE_ODIA ,SE_ARNG ,
+     ALT_TCK ,KC_Q    ,KC_W    ,KC_F    ,KC_P    ,KC_B    ,                     KC_J    ,KC_L    ,KC_U    ,KC_Y    ,SE_ODIA ,ALT_AO  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      LC_ESC  ,KC_A    ,KC_R    ,KC_S    ,KC_T    ,KC_G    ,                     KC_M    ,KC_N    ,KC_E    ,KC_I    ,KC_O    ,CTL_AE  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_D    ,KC_V   ,                      KC_K    ,KC_H    ,SE_COMM ,SE_DOT  ,KC_PSLS ,SFT_QO  ,
+     KC_LSFT ,GUI_Z   ,KC_X    ,KC_C    ,KC_D    ,KC_V   ,                      KC_K    ,KC_H    ,SE_COMM ,SE_DOT  ,GUI_SL  ,SFT_QO  ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          FUN_TAB ,NAV_SPC ,NUM_ENT ,  MOUSE_DEL,SYM_BSPC,MO(_NAV)
                                       //`--------------------------'  `--------------------------'
@@ -105,11 +110,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     KC_TAB  ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,KC_T    ,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,SE_ARNG ,
+     ALT_TAB ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,KC_T    ,                     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,ALT_AO  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      LC_ESC  ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,SE_ODIA ,CTL_AE  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,                     KC_N    ,KC_M    ,SE_COMM ,SE_DOT  ,KC_PSLS ,SFT_QO  ,
+     KC_LSFT ,GUI_Z   ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,                     KC_N    ,KC_M    ,SE_COMM ,SE_DOT  ,GUI_SL  ,SFT_QO  ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          FUN_TAB ,KC_SPC ,NUM_ENT  ,  MOUSE_DEL,SYM_BSPC,MO(_NAV)
                                       //`--------------------------'  `--------------------------'
