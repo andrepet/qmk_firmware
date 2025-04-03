@@ -18,6 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include "keymap_swedish.h" // left-half master
+#include "action_tapping.h"
+#include "timer.h"
 #include <process_key_override.h>
 
 enum corne_layers {
@@ -70,7 +72,6 @@ enum corne_layers {
 const key_override_t semicolon_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_SCLN, SE_COLN);
 const key_override_t comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, SE_LABK);
 const key_override_t dot_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_DOT, SE_RABK);
-const key_override_t slash_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_PSLS, SE_QUES);
 const key_override_t plus_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PLUS, SE_EQL);
 const key_override_t quot_key_override = ko_make_basic(MOD_MASK_SHIFT, SFT_QO, SE_DQUO);
 const key_override_t pipe_key_override = ko_make_basic(MOD_MASK_SHIFT, SE_PIPE, SE_BSLS);
@@ -85,7 +86,6 @@ const key_override_t *key_overrides[] = {
     &semicolon_key_override,
     &comma_key_override,
     &dot_key_override,
-    &slash_key_override,
     &plus_key_override,
     &quot_key_override,
     &pipe_key_override,
@@ -95,15 +95,114 @@ const key_override_t *key_overrides[] = {
     &se_rbrc_key_override
 };
 
+// Custom keys with behaviors we manually handle
+enum custom_keycodes {
+    SLSH_GUI = SAFE_RANGE,  // when tapped -> / when held down -> LGUI when shift tapped -> ?
+    GRV_ALT                 // when tapped -> ` when held down -> LALT
+};
+
+// variables to store state for SLSH_GUI
+static uint16_t slsh_gui_timer = 0;
+static bool slsh_gui_pressed = false;
+static bool slsh_gui_active = false;
+
+// variables to store state for GRV_ALT
+static uint16_t grv_alt_timer = 0;
+static bool grv_alt_pressed = false;
+static bool grv_alt_active = false;
+
+// function to handle all custom keycodes
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case SLSH_GUI:
+            if (record->event.pressed) {
+                // Key pressed - start timer
+                slsh_gui_timer = timer_read();
+                slsh_gui_pressed = true;
+                slsh_gui_active = false;
+                return false;
+            } else {
+                // Key released
+                slsh_gui_pressed = false;
+
+                if (slsh_gui_active) {
+                    // If we've activated GUI mode, turn it off
+                    unregister_code(KC_LGUI);
+                    slsh_gui_active = false;
+                } else {
+                    // If we haven't activated GUI, it was a tap
+                    if (get_mods() & MOD_MASK_SHIFT) {
+                        // If shift is held, send ?
+                        uint8_t temp_mods = get_mods();
+                        clear_mods();
+                        tap_code16(SE_QUES);
+                        set_mods(temp_mods);
+                    } else {
+                        // Otherwise, send /
+                        tap_code(KC_PSLS);
+                    }
+                }
+                return false;
+            }
+            break;
+
+        case GRV_ALT:
+            if (record->event.pressed) {
+                // Key pressed - start timer
+                grv_alt_timer = timer_read();
+                grv_alt_pressed = true;
+                grv_alt_active = false;
+                return false;
+            } else {
+                // Key released
+                grv_alt_pressed = false;
+
+                if (grv_alt_active) {
+                    // If we've activated ALT mode, turn it off
+                    unregister_code(KC_LALT);
+                    grv_alt_active = false;
+                } else {
+                    // If we haven't activated ALT, it was a tap
+                    // Send grave accent
+                    tap_code16(SE_GRV);
+                }
+                return false;
+            }
+            break;
+    }
+    return true;
+}
+
+// function to act on custom keycodes' hold states
+void matrix_scan_user(void) {
+    // Check if SLSH_GUI is being held and we haven't activated GUI yet
+    if (slsh_gui_pressed && !slsh_gui_active) {
+        if (timer_elapsed(slsh_gui_timer) > TAPPING_TERM) {
+            // It's been held long enough, activate GUI
+            register_code(KC_LGUI);
+            slsh_gui_active = true;
+        }
+    }
+
+    // Check if GRV_ALT is being held and we haven't activated ALT yet
+    if (grv_alt_pressed && !grv_alt_active) {
+        if (timer_elapsed(grv_alt_timer) > TAPPING_TERM) {
+            // It's been held long enough, activate ALT
+            register_code(KC_LALT);
+            grv_alt_active = true;
+        }
+    }
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_COLEMAK] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     SE_GRV  ,KC_Q    ,KC_W    ,KC_F    ,KC_P    ,KC_B    ,                     KC_J    ,KC_L    ,KC_U    ,KC_Y    ,SE_ODIA ,ALT_AO  ,
+     GRV_ALT ,KC_Q    ,KC_W    ,KC_F    ,KC_P    ,KC_B    ,                     KC_J    ,KC_L    ,KC_U    ,KC_Y    ,SE_ODIA ,ALT_AO  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      LC_ESC  ,KC_A    ,KC_R    ,KC_S    ,KC_T    ,KC_G    ,                     KC_M    ,KC_N    ,KC_E    ,KC_I    ,KC_O    ,CTL_AE  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,GUI_Z   ,KC_X    ,KC_C    ,KC_D    ,KC_V   ,                      KC_K    ,KC_H    ,SE_COMM ,SE_DOT  ,KC_PSLS ,SFT_QO  ,
+     KC_LSFT ,GUI_Z   ,KC_X    ,KC_C    ,KC_D    ,KC_V   ,                      KC_K    ,KC_H    ,SE_COMM ,SE_DOT  ,SLSH_GUI,SFT_QO ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          FUN_TAB ,NAV_SPC ,NUM_ENT ,  MOUSE_DEL,SYM_BSPC,MO(_NAV)
                                       //`--------------------------'  `--------------------------'
@@ -115,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      LC_ESC  ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,SE_ODIA ,CTL_AE  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,GUI_Z   ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,                     KC_N    ,KC_M    ,SE_COMM ,SE_DOT  ,KC_PSLS ,SFT_QO  ,
+     KC_LSFT ,GUI_Z   ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,                     KC_N    ,KC_M    ,SE_COMM ,SE_DOT  ,SLSH_GUI,SFT_QO  ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          FUN_TAB ,KC_SPC ,NUM_ENT  ,  MOUSE_DEL,SYM_BSPC,MO(_NAV)
                                       //`--------------------------'  `--------------------------'
@@ -148,9 +247,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FUN] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     DM_RSTP ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,RGB_TOG ,                     KC_F12  ,KC_F7   ,KC_F8   ,KC_F9   ,SE_ACUT ,SE_MINS ,
+     DM_REC1 ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,RGB_TOG ,                     KC_F12  ,KC_F7   ,KC_F8   ,KC_F9   ,SE_ACUT ,SE_MINS ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     DM_REC1 ,KC_LGUI ,KC_LALT ,KC_LCTL ,KC_LSFT ,COL_T   ,                     KC_F11  ,KC_F4   ,KC_F5   ,KC_F6   ,SE_SCLN ,SE_PLUS ,
+     DM_RSTP ,KC_LGUI ,KC_LALT ,KC_LCTL ,KC_LSFT ,COL_T   ,                     KC_F11  ,KC_F4   ,KC_F5   ,KC_F6   ,SE_SCLN ,SE_PLUS ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      DM_PLY1 ,RGB_HUI ,RGB_SAI ,RGB_VAI ,RGB_MOD ,QWE_T   ,                     KC_F10  ,KC_F1   ,KC_F2   ,KC_F3   ,KC_PSLS ,SE_DQUO ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
