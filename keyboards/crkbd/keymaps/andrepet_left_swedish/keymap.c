@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include "keymap_swedish.h" // left-half master
+#include <process_key_override.h>
 
 enum corne_layers {
   _COLEMAK,
@@ -55,7 +56,7 @@ enum corne_layers {
 
 // Left-hand home block mods (windows standard)
 #define LC_ESC  LCTL_T(KC_ESC)     // colemak / qwerty
-#define ALT_TCK LALT_T(S(SE_ACUT)) // colemak
+#define ALT_TCK LALT_T(SE_GRV)     // colemak
 #define ALT_TAB LALT_T(KC_TAB)     // windows
 #define GUI_Z   LGUI_T(KC_Z)       // colemak / qwerty
 
@@ -98,11 +99,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_COLEMAK] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     ALT_TCK ,KC_Q    ,KC_W    ,KC_F    ,KC_P    ,KC_B    ,                     KC_J    ,KC_L    ,KC_U    ,KC_Y    ,SE_ODIA ,ALT_AO  ,
+     SE_GRV  ,KC_Q    ,KC_W    ,KC_F    ,KC_P    ,KC_B    ,                     KC_J    ,KC_L    ,KC_U    ,KC_Y    ,SE_ODIA ,ALT_AO  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      LC_ESC  ,KC_A    ,KC_R    ,KC_S    ,KC_T    ,KC_G    ,                     KC_M    ,KC_N    ,KC_E    ,KC_I    ,KC_O    ,CTL_AE  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,GUI_Z   ,KC_X    ,KC_C    ,KC_D    ,KC_V   ,                      KC_K    ,KC_H    ,SE_COMM ,SE_DOT  ,GUI_SL  ,SFT_QO  ,
+     KC_LSFT ,GUI_Z   ,KC_X    ,KC_C    ,KC_D    ,KC_V   ,                      KC_K    ,KC_H    ,SE_COMM ,SE_DOT  ,KC_PSLS ,SFT_QO  ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          FUN_TAB ,NAV_SPC ,NUM_ENT ,  MOUSE_DEL,SYM_BSPC,MO(_NAV)
                                       //`--------------------------'  `--------------------------'
@@ -114,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      LC_ESC  ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,                     KC_H    ,KC_J    ,KC_K    ,KC_L    ,SE_ODIA ,CTL_AE  ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,GUI_Z   ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,                     KC_N    ,KC_M    ,SE_COMM ,SE_DOT  ,GUI_SL  ,SFT_QO  ,
+     KC_LSFT ,GUI_Z   ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,                     KC_N    ,KC_M    ,SE_COMM ,SE_DOT  ,KC_PSLS ,SFT_QO  ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          FUN_TAB ,KC_SPC ,NUM_ENT  ,  MOUSE_DEL,SYM_BSPC,MO(_NAV)
                                       //`--------------------------'  `--------------------------'
@@ -126,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      TG(_NUM),KC_LGUI ,KC_LALT ,KC_LCTL ,KC_LSFT ,KC_MEH  ,                     SE_COMM ,SE_4    ,SE_5    ,SE_6    ,SE_SCLN ,SE_PLUS ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,C(KC_Z) ,C(KC_X) ,C(KC_C) ,C(KC_D) ,KC_HYPR ,                     SE_DOT  ,SE_1    ,SE_2    ,KC_3    ,KC_PSLS ,SE_ASTR ,
+     KC_LSFT ,C(KC_Z) ,C(KC_X) ,C(KC_C) ,C(KC_D) ,KC_HYPR ,                     SE_DOT  ,SE_1    ,SE_2    ,SE_3    ,KC_PSLS ,SE_ASTR ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          MO(_FUN),NAV_SPC ,KC_ENT  ,   SE_EQL  ,SYM_0   ,NAV_MIN
                                       //`--------------------------'  `--------------------------'
