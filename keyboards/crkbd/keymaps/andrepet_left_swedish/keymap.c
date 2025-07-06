@@ -222,11 +222,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NUM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     KC_TAB  ,SE_1    ,SE_2    ,SE_3    ,SE_4    ,SE_5    ,                     SE_6    ,SE_7    ,SE_8    ,SE_9    ,SE_0    ,SE_MINS ,
+     KC_TAB  ,SE_1    ,SE_2    ,SE_3    ,SE_4    ,SE_5    ,                     SE_6    ,SE_7    ,SE_8    ,SE_9    ,SE_0    ,KC_BSPC ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      TG(_NUM),KC_LGUI ,KC_LALT ,KC_LCTL ,KC_LSFT ,KC_MEH  ,                     SE_COMM ,SE_4    ,SE_5    ,SE_6    ,SE_SCLN ,SE_PLUS ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     KC_LSFT ,C(KC_Z) ,C(KC_X) ,C(KC_C) ,C(KC_D) ,KC_HYPR ,                     SE_DOT  ,SE_1    ,SE_2    ,SE_3    ,KC_PSLS ,SE_ASTR ,
+     KC_LSFT ,C(KC_Z) ,C(KC_X) ,C(KC_C) ,C(KC_D) ,KC_HYPR ,                     SE_DOT  ,SE_1    ,SE_2    ,SE_3    ,SE_COLN ,SE_DQUO ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          MO(_FUN),NAV_SPC ,KC_ENT  ,   SE_EQL  ,SYM_0   ,NAV_MIN
                                       //`--------------------------'  `--------------------------'
@@ -247,11 +247,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FUN] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     DM_REC1 ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,RGB_TOG ,                     KC_F12  ,KC_F7   ,KC_F8   ,KC_F9   ,SE_ACUT ,SE_MINS ,
+     DM_RSTP ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,RGB_TOG ,                     KC_F12  ,KC_F7   ,KC_F8   ,KC_F9   ,SE_ACUT ,DM_RSTP ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     DM_RSTP ,KC_LGUI ,KC_LALT ,KC_LCTL ,KC_LSFT ,COL_T   ,                     KC_F11  ,KC_F4   ,KC_F5   ,KC_F6   ,SE_SCLN ,SE_PLUS ,
+     DM_REC1 ,KC_LGUI ,KC_LALT ,KC_LCTL ,KC_LSFT ,COL_T   ,                     KC_F11  ,KC_F4   ,KC_F5   ,KC_F6   ,SE_SCLN ,DM_REC2 ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     DM_PLY1 ,RGB_HUI ,RGB_SAI ,RGB_VAI ,RGB_MOD ,QWE_T   ,                     KC_F10  ,KC_F1   ,KC_F2   ,KC_F3   ,KC_PSLS ,SE_DQUO ,
+     DM_PLY1 ,RGB_HUI ,RGB_SAI ,RGB_VAI ,RGB_MOD ,QWE_T   ,                     KC_F10  ,KC_F1   ,KC_F2   ,KC_F3   ,KC_PSLS ,DM_PLY2 ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          XXXXXXX ,XXXXXXX ,XXXXXXX ,   KC_DEL  ,KC_BSPC ,KC_CAPS
                                       //`--------------------------'  `--------------------------'
@@ -259,9 +259,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_SYM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-SE_TILD,SE_EXLM,ALGR(SE_AT),ALGR(SE_LBRC),ALGR(SE_RBRC),SE_HASH,                XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+SE_TILD,SE_EXLM,ALGR(SE_AT),ALGR(SE_LBRC),ALGR(SE_RBRC),SE_HASH,                SE_MINS,RALT(KC_7),RALT(KC_0),XXXXXXX,XXXXXXX,XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     SE_DIAE ,SE_AMPR,ALGR(SE_DLR),SE_LPRN ,SE_RPRN ,SE_PERC,                   XXXXXXX ,OS_SHF  ,OS_CTL  ,OS_ALT  ,OS_GUI  ,KC_RCTL ,
+     SE_DIAE ,SE_AMPR,ALGR(SE_DLR),SE_LPRN ,SE_RPRN ,SE_PERC,                   SE_EQL  ,OS_SHF  ,OS_CTL  ,OS_ALT  ,OS_GUI  ,KC_RCTL ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      SE_BSLS,ALGR(SE_LABK),SE_CIRC,SE_LABK,SE_RABK,SE_ASTR,                     XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,KC_RSFT ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
